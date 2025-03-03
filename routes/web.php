@@ -11,6 +11,10 @@ Route::get('/', function () {
     return view('index');
 });
 
+Route::get('/test', function(){
+    return view('test');
+});
+
 
 Route::get('/normal', function () {
     return Inertia::render('Welcome', [
