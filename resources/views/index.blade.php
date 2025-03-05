@@ -1,9 +1,14 @@
 @extends('layouts.bienestarvalpo')
 
+@section('titulo')
+Inicio
+@endsection
+
 @section('content')
             <div class="jumbotron mt-2">
-                <h1 class="display-4">Nuevo sitio BienestarValpo</h1>
-                <p class="lead">Esto es un modo de desarrollo</p>
+                <h1 class="display-4">Nuevo sitio BienestarValpo:  </h1>
+                <h5 class=""><?php echo date("Y-m-d h:i:sa");?> </h5>
+                <p class="lead">Estado: En desarrollo</p>
                 <hr class="my-4">
                 <p>Si necesita ver el sitio anterior.</p>
                 <a class="btn btn-primary btn-lg" href="https://www.bienestarvalpo.cl/" role="button">Sitio Anterior</a>
@@ -14,10 +19,10 @@
             <div class="row row-cols-1 row-cols-md-3">
                 <div class="col mb-4">
                   <div class="card">
-                    <img src="..." class="card-img-top" alt="...">
+                    <img src="#" class="card-img-top" alt="...">
                     <div class="card-body">
                       <h5 class="card-title">Primer Form</h5>
-                      <p class="card-text">Generar urls de un form</p>
+                      <p class="card-text">Json a partir de datos de un registro</p>
                       <form>
                         <div class="form-group">
                           <label for="exampleInputEmail1">Email</label>
@@ -32,11 +37,11 @@
                           <input type="checkbox" class="form-check-input" id="exampleCheck1">
                           <label class="form-check-label" for="exampleCheck1">Check me out</label>
                         </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-primary disabled">Confirmar</button>
                       </form>
                     </div>
                     <div class="card-footer">
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <a href="#" class="btn btn-warning disabled">Visualizar datos</a>
                     </div>
                   </div>
                   
@@ -45,8 +50,10 @@
                   <div class="card">
                     <img src="..." class="card-img-top" alt="...">
                     <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                      <h5 class="card-title">Lector de Datos</h5>
+                      <p class="card-text">Test de datos cargados desde excel.</p>
+                      <p class="card-text">No cargado.</p>
+  
                     </div>
                     <div class="card-footer">
                       <form>
@@ -55,35 +62,27 @@
                           <input type="file" class="form-control-file" id="exampleFormControlFile1">
                         </div>
                       </form>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <a href="#" class="btn btn-warning disabled">Visualizar Datos</a>
                     </div>
                   </div>
                 </div>
+               
                 <div class="col mb-4">
                   <div class="card">
-                    <img src="..." class="card-img-top" alt="...">
+                    <img src="{{asset('img/caballo-amarillo.PNG')}}" class="card-img-top" alt="...">
                     <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
+                      <h5 class="card-title">Registro</h5>
+                      <p class="card-text">Estado: Pruebas de registro</p>
                     </div>
                     <div class="card-footer">
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                  </div>
-                </div>
-                <div class="col mb-4">
-                  <div class="card">
-                    <img src="..." class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    </div>
-                    <div class="card-footer">
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <a href="/crear-cuenta" class="btn btn-primary">Ir a Registro</a>
+                        <a href="#" class="btn btn-primary">Ir a Login</a>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
+            
+
     
 @endsection

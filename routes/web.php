@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Test\RegisterController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -14,6 +15,9 @@ Route::get('/', function () {
 Route::get('/test', function(){
     return view('test');
 });
+
+Route::get('/crear-cuenta', [RegisterController::class, 'index']);
+Route::post('/crear-cuenta', [RegisterController::class, 'store']);
 
 
 Route::get('/normal', function () {

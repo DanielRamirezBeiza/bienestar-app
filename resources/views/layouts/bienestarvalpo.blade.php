@@ -3,8 +3,8 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title inertia>{{ config('app.name', 'Laravel') }}</title>
+        <title inertia>BienestarValpo.app {{-- config('app.name', 'Laravel') --}} @yield('titulo')</title>
+        
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -26,7 +26,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                  <a class="nav-link" href="#">INICIO <span class="sr-only">(current)</span></a>
+                  <a class="nav-link" href="/crear-cuenta">Registrarse <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="#">Políclinico</a>
@@ -48,14 +48,17 @@
                   <a class="nav-link disabled">Administración</a>
                 </li>
               </ul>
+              <h5 class="text-white mx-2">Sesión {{now()}} :)</h2>
               <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <input class="form-control mr-sm-2 disabled" type="search" placeholder="No habilitado" aria-label="Search">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
               </form>
             </div>
           </nav>
         <div class="container bg-primary border border-dark rounded mt-2">
             <h1 class="text-light text-center">BIENESTARVALPO</h1>
+            <h4 class="text-light text-center">@yield('titulo')</h1>
+
         </div>
 
         <div class="container border border-dark rounded mt-2">
