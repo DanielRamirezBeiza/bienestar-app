@@ -16,8 +16,15 @@ Route::get('/test', function(){
     return view('test');
 });
 
-Route::get('/crear-cuenta', [RegisterController::class, 'index']);
-Route::post('/crear-cuenta', [RegisterController::class, 'store']);
+
+Route::get('/inventario', function(){
+    return view('inventario');
+});
+
+
+Route::get('/test/crear-cuenta', [RegisterController::class, 'index'])->name('test-register');
+Route::post('/test/crear-cuenta', [RegisterController::class, 'store'])->name('test-register');
+Route::get('/test/destroy', [RegisterController::class, 'test.destroy']);
 
 
 Route::get('/normal', function () {

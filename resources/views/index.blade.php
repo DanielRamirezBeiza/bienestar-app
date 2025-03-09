@@ -75,7 +75,7 @@ Inicio
                       <p class="card-text">Estado: Pruebas de registro</p>
                     </div>
                     <div class="card-footer">
-                        <a href="/crear-cuenta" class="btn btn-primary">Ir a Registro</a>
+                        <a href="{{route('test-register')}}" class="btn btn-primary">Ir a Registro</a>
                         <a href="#" class="btn btn-primary">Ir a Login</a>
                     </div>
                   </div>
