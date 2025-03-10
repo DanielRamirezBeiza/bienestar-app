@@ -12,36 +12,44 @@
     Este formulario es de pruebas y utilizados solo para versiones de desarrollo (no es una cuenta definitiva),
     el objetivo es realizar pruebas de interacción de usuarios, para lo que podrá ingresar datos ficticios. 
   </div>
-<form action="{{route('test-register')}}" method="POST">
+<form action="{{route('test-register')}}" method="POST" novalidate>
     @csrf
     <div class="form-group">
-      <label for="Email">Dirección de correo</label>
-    
-      <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp">
-      <small id="emailHelp" class="form-text text-muted">Modo de pruebas: ingrese correo ficticio</small>
-    </div>
-    <div class="form-group">
+
+      <div class="form-group">
         <label for="nombre">Nombre de usuario</label>
-        <input type="text" class="form-control" id="nombre" name="nombre" aria-describedby="emailHelp">
+        <input type="text" class="form-control" value="{{old('name')}}" id="nombre" name="name" aria-describedby="nameHelp">
         @error('name')
-        <div class="alert alert-warning" role="alert">
-          Error de validacion
-        </div>
+          <div class="alert alert-warning" role="alert">
+            {{$message}}
+          </div>
         @enderror
-        <small id="emailHelp" class="form-text text-muted">Nombre completo</small>
+        <small id="nameHelp" class="form-text text-muted">Nombre completo</small>
       </div>
+
+      
     <div class="form-group">
         <label for="Rut">Rut</label>
-        <input type="text" class="form-control" id="Rut" name="rut" aria-describedby="Rut">
-        <small id="Rut" class="form-text text-muted">Ingrese su rut con guión y sin puntos, es decir: "12345678-9" </small>
+        <input type="text" value="{{old('rut')}}" class="form-control" id="Rut" name="rut" aria-describedby="Rut">
         @error('rut')
-        <div class="alert alert-warning" role="alert">
-          {{$message}}
-        </div>
+          <div class="alert alert-warning" role="alert">
+            {{$message}}
+          </div>
         @enderror
+        <small id="Rut" class="form-text text-muted">Ingrese su rut con guión y sin puntos, es decir: "12345678-9" </small>
       </div>
 
 
+      <label for="Email">Dirección de correo</label>
+      <input type="email" value="{{old('email')}}" class="form-control" id="email" name="email" aria-describedby="emailHelp">
+      @error('email')
+      <div class="alert alert-warning" role="alert">
+        {{$message}}
+      </div>
+    @enderror
+      <small id="emailHelp" class="form-text text-muted">Modo de pruebas: ingrese correo ficticio</small>
+    </div>
+  
     <div class="form-group">
       <label for="password">Contraseña</label>
       <input type="password" class="form-control" id="password" name="password">
@@ -55,7 +63,7 @@
       <input type="checkbox" class="form-check-input" id="exampleCheck1">
       <label class="form-check-label" for="exampleCheck1">Acepto participar en el ejercicio de desarrollo de BienestarValpo.app</label>
     </div>
-    <button type="submit" value="Crear cuenta test" class="btn btn-primary">Ingresar</button>
+    <button type="submit" value="Crear cuenta test" class="btn btn-primary mb-2">Crear Cuenta</button>
   </form>
 
 @endsection

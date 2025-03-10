@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Test;
 
 use App\Http\Controllers\Controller;
+use App\Models\Test\TestUsers;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rules;
 
@@ -22,9 +23,19 @@ class RegisterController extends Controller
 
         //Validacion
         $request->validate([
-            'name'=> 'required',
-            'rut' => 'required',
+            'name'=> 'required|string|max:255',
+            'rut' => 'required|string|max:12|min:8',
+            'email'=> 'required',
+            'password'=> 'required|confirmed',
+            'password_confirmation' => 'required',
 
+        ]);
+
+        TestUsers::create([
+                'name'=> $request->name,
+                'rut' => $request->rut,
+                'email'=> $request->email,
+                'password'=>$request->password
         ]);
     }
 
