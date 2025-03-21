@@ -76,7 +76,7 @@ Inicio
                     </div>
                     <div class="card-footer">
                         <a href="{{route('test-register')}}" class="btn btn-primary">Ir a Registro</a>
-                        <a href="#" class="btn btn-primary">Ir a Login</a>
+                        <a href="{{route('test-login')}}" class="btn btn-primary">Ir a Login</a>
                     </div>
                   </div>
                 </div>

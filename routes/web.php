@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Test\PostController;
 use App\Http\Controllers\Test\RegisterController;
+use App\Http\Controllers\Test\LoginController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -22,9 +24,16 @@ Route::get('/inventario', function(){
 });
 
 
+/*
+Rutas para hacer pruebas con un login artesanal)
+*/
 Route::get('/test/crear-cuenta', [RegisterController::class, 'index'])->name('test-register');
 Route::post('/test/crear-cuenta', [RegisterController::class, 'store'])->name('test-register');
 Route::get('/test/destroy', [RegisterController::class, 'test.destroy']);
+Route::get('/test/login', [LoginController::class, 'index'])->name('test-login');
+Route::post('/test/login', [LoginController::class, 'store'])->name('test-login');
+Route::get('/test/muro', [PostController::class, 'index'])->name('testpost-index')->middleware('auth');
+
 
 
 Route::get('/normal', function () {
@@ -35,6 +44,8 @@ Route::get('/normal', function () {
         'phpVersion' => PHP_VERSION,
     ]);
 });
+
+
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
