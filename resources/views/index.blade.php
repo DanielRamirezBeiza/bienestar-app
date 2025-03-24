@@ -23,25 +23,33 @@ Inicio
                     <div class="card-body">
                       <h5 class="card-title">Primer Form</h5>
                       <p class="card-text">Json a partir de datos de un registro</p>
-                      <form>
-                        <div class="form-group">
-                          <label for="exampleInputEmail1">Email</label>
-                          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                          <small id="emailHelp" class="form-text text-muted">Correo Electronico</small>
-                        </div>
-                        <div class="form-group">
-                          <label for="exampleInputPassword1">Password</label>
-                          <input type="password" class="form-control" id="exampleInputPassword1">
-                        </div>
-                        <div class="form-group form-check">
-                          <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                          <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                        </div>
-                        <button type="submit" class="btn btn-primary disabled">Confirmar</button>
-                      </form>
+                      <form action="{{route('test-login')}}" method="POST" novalidate>
+                          @csrf
+                          
+                          <div class="form-group">
+                              <label for="Rut">Rut</label>
+                              <input type="text" value="{{old('rut')}}" class="form-control" id="Rut" name="rut" aria-describedby="Rut">
+                              @error('rut')
+                                <div class="alert alert-warning" role="alert">
+                                  {{$message}}
+                                </div>
+                              @enderror
+                              <small id="Rut" class="form-text text-muted">Ingrese su rut con guión y sin puntos, es decir: "12345678-9" </small>
+                            </div>
+                          <div class="form-group">
+                            <label for="password">Contraseña</label>
+                            <input type="password" class="form-control" id="password" name="password">
+                          </div> 
+                          @error('password')
+                          <div class="alert alert-warning" role="alert">
+                            {{$message}}
+                          </div>
+                        @enderror
+                          <button type="submit" value="Crear cuenta test" class="btn btn-primary mb-2">Presionar aquí para ser buena onda</button>
+                        </form>
                     </div>
                     <div class="card-footer">
-                        <a href="#" class="btn btn-warning disabled">Visualizar datos</a>
+                        
                     </div>
                   </div>
                   
@@ -67,6 +75,7 @@ Inicio
                   </div>
                 </div>
                
+                @guest
                 <div class="col mb-4">
                   <div class="card">
                     <img src="{{asset('img/caballo-amarillo.PNG')}}" class="card-img-top" alt="...">
@@ -80,6 +89,27 @@ Inicio
                     </div>
                   </div>
                 </div>
+                @endguest
+
+                @auth
+                <div class="col mb-4">
+                  <div class="card">
+                    <img src="{{asset('img/caballo-amarillo.PNG')}}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Registro</h5>
+                      <p class="card-text">Estado: Pruebas de registro</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="{{route('testpost-index')}}" class="btn btn-primary">Ir a sesión</a>
+                          <form method="POST" action="{{route('test-logout')}}">
+                          @csrf
+                          <button type="submit" class="btn btn-secondary btn-lg btn-block">Cerrar sesión</button>
+                          </form>
+                    </div>
+                  </div>
+                </div>
+                @endauth
+                
               </div>
             </div>
             

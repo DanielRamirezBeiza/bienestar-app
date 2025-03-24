@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Test\PostController;
 use App\Http\Controllers\Test\RegisterController;
@@ -12,7 +13,7 @@ use Inertia\Inertia;
 
 Route::get('/', function () {
     return view('index');
-});
+})->name('test-home');
 
 Route::get('/test', function(){
     return view('test');
@@ -33,7 +34,7 @@ Route::get('/test/destroy', [RegisterController::class, 'test.destroy']);
 Route::get('/test/login', [LoginController::class, 'index'])->name('test-login');
 Route::post('/test/login', [LoginController::class, 'store'])->name('test-login');
 Route::get('/test/muro', [PostController::class, 'index'])->name('testpost-index')->middleware('auth');
-
+Route::post('/test/logout', [LogoutController::class, 'store'])->name('test-logout');
 
 
 Route::get('/normal', function () {

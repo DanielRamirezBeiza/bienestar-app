@@ -25,9 +25,14 @@
           
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                  <a class="nav-link" href="{{route('test-register')}}">Registrarse <span class="sr-only">(current)</span></a>
-                </li>
+                  <li class="nav-item active text-white">
+                    @auth
+                      Bienvenido: <p class="text-white">{{auth()->user()->username}}</p>
+                    @endauth
+                    @guest
+                      <a class="nav-link" href="{{route('test-register')}}">Registrarse <span class="sr-only">(current)</span></a>
+                    @endguest
+                  </li>
                 <li class="nav-item">
                   <a class="nav-link" href="#">Políclinico</a>
                 </li>
@@ -51,7 +56,23 @@
                   <a class="nav-link disabled">Administración</a>
                 </li>
               </ul>
-              <h5 class="text-white mx-2">Sesión {{now()}} :)</h2>
+              <h5 class="text-white mx-2">Tipo De Sesión {{now()}} :)</h5>
+                <span class="text-white bold mx-2">
+                  @if(auth()->user())
+                  <div class="btn-group-vertical" role="group" aria-label="Basic example">
+                    <button type="button" class="btn btn-secondary mt-1">Mi Sesión</button>
+                    <form method="POST" action="{{route('test-logout')}}">
+                      @csrf
+                      <button type="submit" class="btn btn-secondary btn-lg btn-block">Cerrar sesión</button>
+                      </form>
+                  </div>
+                  @else
+                    <div class="btn-group-vertical" role="group" aria-label="Basic example">
+                      <button type="button" class="btn btn-secondary mt-1">Iniciar Sesión</button>
+                      <button type="button" class="btn btn-secondary mt-1">Registrarse</button>
+                    </div>
+                  @endif
+                </span>
               <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2 disabled" type="search" placeholder="No habilitado" aria-label="Search">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>

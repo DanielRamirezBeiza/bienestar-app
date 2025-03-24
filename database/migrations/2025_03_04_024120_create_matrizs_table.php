@@ -14,7 +14,9 @@ return new class extends Migration
         Schema::create('matrizs', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            
+            $table->string('rut');
+            $table->string('nombre');
+            $table->string('estadoAfiliacion');
         });
     }
 
