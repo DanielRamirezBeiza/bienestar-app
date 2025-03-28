@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\MatrizController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Test\PostController;
 use App\Http\Controllers\Test\RegisterController;
@@ -35,6 +36,15 @@ Route::get('/test/login', [LoginController::class, 'index'])->name('test-login')
 Route::post('/test/login', [LoginController::class, 'store'])->name('test-login');
 Route::get('/test/muro', [PostController::class, 'index'])->name('testpost-index')->middleware('auth');
 Route::post('/test/logout', [LogoutController::class, 'store'])->name('test-logout');
+
+
+/*
+Rutas para hacer test de cargar una matriz
+*/
+Route::POST('/cargar-matriz',[MatrizController::class,'store'])->name('matriz.store');
+
+
+
 
 
 Route::get('/normal', function () {

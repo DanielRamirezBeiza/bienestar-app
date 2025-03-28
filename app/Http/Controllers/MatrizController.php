@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Matriz;
-use App\Http\Requests\StoreMatrizRequest;
+use Illuminate\Http\Request;
 use App\Http\Requests\UpdateMatrizRequest;
+use App\Imports\MatrizImport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class MatrizController extends Controller
 {
@@ -21,16 +23,23 @@ class MatrizController extends Controller
      */
     public function create()
     {
-        //
+     
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreMatrizRequest $request)
+    public function store(Request $request)
     {
         //
-    }
+      
+        
+        
+           $file = $request->file('import_file');
+           Excel::import(new MatrizImport, $file);
+           return redirect()->route('test-home')->with('success', 'Actualización correcta');
+            
+           }
 
     /**
      * Display the specified resource.

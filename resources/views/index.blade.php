@@ -60,15 +60,19 @@ Inicio
                     <div class="card-body">
                       <h5 class="card-title">Lector de Datos</h5>
                       <p class="card-text">Test de datos cargados desde excel.</p>
-                      <p class="card-text">No cargado.</p>
+                      @if(session('sucess'))
+                        <p class="card-text">Cargado</p>
+                        @else
+                        <p class="card-text">No cargado.</p>
+                      @endif
   
                     </div>
                     <div class="card-footer">
-                      <form>
-                        <div class="form-group">
-                          <label for="exampleFormControlFile1">Cargar archivo</label>
-                          <input type="file" class="form-control-file" id="exampleFormControlFile1">
-                        </div>
+                      <form action="{{route('matriz.store')}} method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <label for="Importar Excel">Cargar archivo</label>
+                        <input type="file" class="form-control-file" name="import_file" />  
+                        <button class="btn btn-primary" type="submit">Actualizar</button>
                       </form>
                         <a href="#" class="btn btn-warning disabled">Visualizar Datos</a>
                     </div>

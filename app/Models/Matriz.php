@@ -9,4 +9,10 @@ class Matriz extends Model
 {
     /** @use HasFactory<\Database\Factories\MatrizFactory> */
     use HasFactory;
+
+    protected $fillable = [
+        'nombre',
+        'rut',
+        'estadoAfiliacion',
+    ];
 }
