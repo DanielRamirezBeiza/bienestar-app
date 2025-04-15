@@ -2,10 +2,13 @@
 
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\MatrizController;
+use App\Http\Controllers\PiaController;
+use App\Http\Controllers\PiasAuthController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Test\PostController;
 use App\Http\Controllers\Test\RegisterController;
 use App\Http\Controllers\Test\LoginController;
+use App\Models\Pia;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -44,28 +47,26 @@ Rutas para hacer test de cargar una matriz
 Route::POST('/cargar-matriz',[MatrizController::class,'store'])->name('matriz.store');
 
 
+/*
+Rutas para interactuar con PIAS
+Route::get('/pias', [PiaController::class, 'index'])->name('pia.index');
+
+Route::get('/pias-login', function () {
+    return view('soap-login');
+})->name('pias.login');
+Route::post('/soap-login', [App\Http\Controllers\PiaController::class, 'login'])->name('pias.login.submit');
+*/
+
+Route::get('/pias-login', [PiasAuthController::class, 'showLogin'])->name('pias.login.form');
+Route::post('/pias-login', [PiasAuthController::class, 'login'])->name('pias.login');
+
+/*
+Route::middleware('auth.soap')->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard', ['token' => session('soap_token')]);
+    })->name('dashboard');
+}
+*/
 
 
 
-Route::get('/normal', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
-});
-
-
-
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
-
-require __DIR__.'/auth.php';

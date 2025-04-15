@@ -13,48 +13,40 @@ Inicio
                 <p>Si necesita ver el sitio anterior.</p>
                 <a class="btn btn-primary btn-lg" href="https://www.bienestarvalpo.cl/" role="button">Sitio Anterior</a>
                 <a class="btn btn-primary btn-lg" href="/test" role="button">Sitio Pruebas</a>
+                <a class="btn btn-primary btn-lg" href="{{route('pias.login.form')}}" role="button">Test Pias</a>
             </div>
 
             
             <div class="row row-cols-1 row-cols-md-3">
                 <div class="col mb-4">
+
                   <div class="card">
                     <img src="#" class="card-img-top" alt="...">
                     <div class="card-body">
-                      <h5 class="card-title">Primer Form</h5>
-                      <p class="card-text">Json a partir de datos de un registro</p>
-                      <form action="{{route('test-login')}}" method="POST" novalidate>
+                      <h5 class="card-title">Ingreso PIAS</h5>
+                      <p class="card-text">Utilizar credenciales validadas por SUSESO</p>
+                        <form method="POST" action="">
                           @csrf
-                          
-                          <div class="form-group">
-                              <label for="Rut">Rut</label>
-                              <input type="text" value="{{old('rut')}}" class="form-control" id="Rut" name="rut" aria-describedby="Rut">
-                              @error('rut')
-                                <div class="alert alert-warning" role="alert">
-                                  {{$message}}
-                                </div>
-                              @enderror
-                              <small id="Rut" class="form-text text-muted">Ingrese su rut con guión y sin puntos, es decir: "12345678-9" </small>
-                            </div>
-                          <div class="form-group">
-                            <label for="password">Contraseña</label>
-                            <input type="password" class="form-control" id="password" name="password">
-                          </div> 
-                          @error('password')
-                          <div class="alert alert-warning" role="alert">
-                            {{$message}}
+                          <div class="mb-3">
+                              <label for="codigo_entidad" class="form-label">Código Entidad</label>
+                              <input type="text" class="form-control" id="codigo_entidad" name="codigo_entidad" value="1234" required>
                           </div>
-                        @enderror
-                          <button type="submit" value="Crear cuenta test" class="btn btn-primary mb-2">Presionar aquí para ser buena onda</button>
-                        </form>
-                    </div>
-                    <div class="card-footer">
-                        
+                          <div class="mb-3">
+                              <label for="login_usuario" class="form-label">Usuario</label>
+                              <input type="text" class="form-control" id="login_usuario" name="login_usuario" value="pruebajose" required>
+                          </div>
+                          <div class="mb-3">
+                              <label for="clave_usuario" class="form-label">Contraseña</label>
+                              <input type="password" class="form-control" id="clave_usuario" name="clave_usuario" value="Q654321q." required>
+                          </div>
+                          <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+                      </form>
+
+                  
                     </div>
                   </div>
-                  
                 </div>
-                <div class="col mb-4">
+                    <div class="col mb-4">
                   <div class="card">
                     <img src="..." class="card-img-top" alt="...">
                     <div class="card-body">
@@ -77,8 +69,8 @@ Inicio
                         <a href="#" class="btn btn-warning disabled">Visualizar Datos</a>
                     </div>
                   </div>
+                
                 </div>
-               
                 @guest
                 <div class="col mb-4">
                   <div class="card">
