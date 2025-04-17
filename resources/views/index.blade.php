@@ -60,13 +60,13 @@ Inicio
   
                     </div>
                     <div class="card-footer">
-                      <form action="{{route('matriz.store')}} method="POST" enctype="multipart/form-data">
+                      <form action="{{route('matriz.store')}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <label for="Importar Excel">Cargar archivo</label>
                         <input type="file" class="form-control-file" name="import_file" />  
                         <button class="btn btn-primary" type="submit">Actualizar</button>
                       </form>
-                        <a href="#" class="btn btn-warning disabled">Visualizar Datos</a>
+                        <a href="{{route('matriz.index')}}" class="btn btn-warning">Visualizar Datos</a>
                     </div>
                   </div>
                 

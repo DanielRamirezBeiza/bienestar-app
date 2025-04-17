@@ -4,11 +4,9 @@ namespace App\Imports;
 
 use App\Models\Matriz;
 use Maatwebsite\Excel\Concerns\ToModel;
-use Maatwebsite\Excel\Concerns\WithBatchInserts;
-use Maatwebsite\Excel\Concerns\WithChunkReading;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
 
-class MatrizImport implements ToModel, WithHeadingRow, WithBatchInserts, WithChunkReading
+class MatrizImport implements ToModel, WithHeadingRow
 {
     /**
     * @param array $row
@@ -17,21 +15,14 @@ class MatrizImport implements ToModel, WithHeadingRow, WithBatchInserts, WithChu
     */
     public function model(array $row)
     {
+       // dd($row);
         return new Matriz([
             //
-            'nombre' =>$row['username'],
+            'nombre' =>$row['nombre'],
             'rut'=>$row['rut'],
-            'estadoAfiliacion' => $row['estadoAfiliacion']
+            'estadoAfiliacion' => $row['estadoafiliacion'],
         ]);
     }
 
-    public function batchSize(): int
-    {
-        return 1000;
-    }
 
-    public function chunkSize()): int
-    {
-        return 1000;
-    }
 }
