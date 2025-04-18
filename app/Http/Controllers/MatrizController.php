@@ -32,14 +32,21 @@ class MatrizController extends Controller
     public function store(Request $request)
     {
         //
-      
+    
+        $request->validate([
+            'file' => 'required|mimes:csv, xls, xlsx'
+        ]);
+
         
-        
-           $file = $request->file('import_file');
-           Excel::import(new MatrizImport, $file);
-           return redirect()->route('test-home')->with('success', 'Actualización correcta');
-            
-           }
+
+
+        $file= $request->file('file');
+
+        Excel::toCollection(new MatrizImport, $file); 
+        return redirect()->route('test-home')->with('success', 'Actualización correcta');
+
+    }
+
 
     /**
      * Display the specified resource.
