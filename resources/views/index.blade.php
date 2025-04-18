@@ -66,7 +66,7 @@ Inicio
                         <input type="file" class="form-control-file" name="import_file" />  
                         <button class="btn btn-primary" type="submit">Actualizar</button>
                       </form>
-                        <a href="#" class="btn btn-warning disabled">Visualizar Datos</a>
+                        <a href="{{route('matriz.index')}}" class="btn btn-warning">Visualizar Datos</a>
                     </div>
                   </div>
                 

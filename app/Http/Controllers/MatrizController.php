@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Matriz;
 use Illuminate\Http\Request;
-use App\Http\Requests\UpdateMatrizRequest;
 use App\Imports\MatrizImport;
 use Maatwebsite\Excel\Facades\Excel;
+use App\Models\MatrizCargasBienestar;
+use App\Http\Requests\UpdateMatrizRequest;
+use App\Imports\MatrizCargasBienestarImport;
 
 class MatrizController extends Controller
 {
@@ -16,6 +18,7 @@ class MatrizController extends Controller
     public function index()
     {
         //
+        return view('admin.matrices');
     }
 
     /**
@@ -32,6 +35,7 @@ class MatrizController extends Controller
     public function store(Request $request)
     {
         //
+<<<<<<< HEAD
     
         $request->validate([
             'file' => 'required|mimes:csv, xls, xlsx'
@@ -47,6 +51,24 @@ class MatrizController extends Controller
 
     }
 
+=======
+           $file = $request->file('import_file');
+           Excel::import(new MatrizImport, $file);
+           return redirect()->route('test-home')->with('success', 'Actualización correcta');
+    }
+
+    public function storeCargasBienestar(Request $request)
+    {
+        //
+           $file = $request->file('import_file');
+           MatrizCargasBienestar::truncate(); //borrar datos anteriores del modelo
+           Excel::import(new MatrizCargasBienestarImport, $file);
+           return redirect()->route('test-home')->with('success', 'Actualización correcta');
+    }
+
+
+
+>>>>>>> aa86e0fc4ea6183efca3a2193287429213849f71
 
     /**
      * Display the specified resource.

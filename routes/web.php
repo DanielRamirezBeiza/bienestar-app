@@ -44,7 +44,9 @@ Route::post('/test/logout', [LogoutController::class, 'store'])->name('test-logo
 /*
 Rutas para hacer test de cargar una matriz
 */
-Route::POST('/cargar-matriz',[MatrizController::class,'store'])->name('matriz.store');
+Route::get('/administrar-matriz',[MatrizController::class,'index'])->name('matriz.index');
+Route::post('/cargar-matriz',[MatrizController::class,'store'])->name('matriz.store');
+Route::post('/cargar-matrizcargasbienestar',[MatrizController::class,'storeCargasBienestar'])->name('matriz.storecargasbienestar');
 
 
 /*
