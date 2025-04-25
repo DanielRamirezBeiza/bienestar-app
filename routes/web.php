@@ -47,7 +47,7 @@ Rutas para hacer test de cargar una matriz
 Route::get('/administrar-matriz',[MatrizController::class,'index'])->name('matriz.index');
 Route::post('/cargar-matriz',[MatrizController::class,'store'])->name('matriz.store');
 Route::post('/cargar-matrizcargasbienestar',[MatrizController::class,'storeCargasBienestar'])->name('matriz.storecargasbienestar');
-
+Route::post('/cargar-matrizcargascas',[MatrizController::class,'storeCargasCas'])->name('matriz.storecargascas');
 
 /*
 Rutas para interactuar con PIAS

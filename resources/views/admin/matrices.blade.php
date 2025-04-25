@@ -23,7 +23,7 @@
           <form action="{{route('matriz.storecargasbienestar')}}" method="POST" enctype="multipart/form-data">
             @csrf
             <label for="Importar Excel">Cargar archivo</label>
-            <input type="file" class="form-control-file" name="import_file" />  
+            <input type="file" class="form-control-file" name="import_file_proexsy" />  
             <button class="btn btn-primary" type="submit">Actualizar</button>
           </form>
         </div>
@@ -43,10 +43,10 @@
       @endif
       </div>
       <div class="card-footer">
-        <form action="{{route('matriz.storecargasbienestar')}}" method="POST" enctype="multipart/form-data">
+        <form action="{{route('matriz.storecargascas')}}" method="POST" enctype="multipart/form-data">
           @csrf
           <label for="Importar Excel">Cargar archivo</label>
-          <input type="file" class="form-control-file" name="import_file" />  
+          <input type="file" class="form-control-file" name="import_file_cas" />  
           <button class="btn btn-primary" type="submit">Actualizar</button>
         </form>
       </div>
