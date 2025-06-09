@@ -12,7 +12,7 @@
     Este formulario es de pruebas y utilizados solo para versiones de desarrollo (no es una cuenta definitiva),
     el objetivo es realizar pruebas de interacción de usuarios, para lo que podrá ingresar datos ficticios. 
   </div>
-<form action="{{route('register')}}" method="POST" novalidate>
+<form action="{{route('test-register')}}" method="POST" novalidate>
     @csrf
     <div class="form-group">
 

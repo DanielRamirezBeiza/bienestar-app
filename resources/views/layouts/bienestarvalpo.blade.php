@@ -11,6 +11,7 @@
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
 
+        @stack('styles')
         <!-- Scripts -->
         <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
@@ -18,7 +19,7 @@
 
     <body class="font-sans antialiased">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="#">BIENESTAR</a>
+            <a class="navbar-brand" href="{{route('index')}}">BIENESTAR</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -34,11 +35,10 @@
                     @endguest
                   </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Políclinico</a>
+                  <a class="nav-link" href="{{route('cargasfamiliares-index')}}">Cargas Familiares</a>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Inventario</a>
-                </li>
+
+
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
                     Servicios
@@ -56,7 +56,6 @@
                   <a class="nav-link disabled">Administración</a>
                 </li>
               </ul>
-              <h5 class="text-white mx-2">Tipo De Sesión {{now()}} :)</h5>
                 <span class="text-white bold mx-2">
                   @if(auth()->user())
                   <div class="btn-group-vertical" role="group" aria-label="Basic example">
@@ -72,15 +71,13 @@
                       <button type="button" class="btn btn-secondary mt-1">Registrarse</button>
                     </div>
                   @endif
-                </span>
-              <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2 disabled" type="search" placeholder="No habilitado" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
-              </form>
+                </span>>
+                  
+                  
             </div>
           </nav>
         <div class="container bg-primary border border-dark rounded mt-2">
-            <h1 class="text-light text-center">BIENESTARVALPO</h1>
+            <h1 class="text-light text-center">PANEL DE INICIO</h1>
             <h4 class="text-light text-center">@yield('titulo')</h1>
 
         </div>

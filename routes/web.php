@@ -1,13 +1,16 @@
 <?php
 
+use App\Http\Controllers\FamiliarCargaController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\MatrizController;
+use App\Http\Controllers\PdfController;
 use App\Http\Controllers\PiaController;
 use App\Http\Controllers\PiasAuthController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Test\PostController;
 use App\Http\Controllers\Test\RegisterController;
 use App\Http\Controllers\Test\LoginController;
+use App\Models\FamiliarCarga;
 use App\Models\Pia;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -17,7 +20,7 @@ use Inertia\Inertia;
 
 Route::get('/', function () {
     return view('index');
-})->name('test-home');
+})->name('index');
 
 Route::get('/test', function(){
     return view('test');
@@ -27,6 +30,10 @@ Route::get('/test', function(){
 Route::get('/inventario', function(){
     return view('inventario');
 });
+
+
+Route::post('/pdf', [PdfController::class, 'store'])->name('pdf.store');
+
 
 
 /*
@@ -41,6 +48,17 @@ Route::get('/test/muro', [PostController::class, 'index'])->name('testpost-index
 Route::post('/test/logout', [LogoutController::class, 'store'])->name('test-logout');
 
 
+
+
+/*
+Rutas para administración global de carga familiares
+*/
+Route::get('/cargafamiliar', [FamiliarCargaController::class, 'index'])->name('cargasfamiliares-index');
+Route::get('/crear_cargafamiliar', [FamiliarCargaController::class, 'create'])->name('cargasfamiliares-create');
+Route::post('/crear_cargafamiliar', [FamiliarCargaController::class, 'store'])->name('cargasfamiliares-store');
+Route::get('/mostrar_cargafamiliar/{carga}', [FamiliarCargaController::class, 'show'])->name('cargasfamiliares-show');
+Route::get('/update_cargafamiliar', [FamiliarCargaController::class, 'update'])->name('cargasfamiliares-update');
+Route::get('/delete_cargafamiliar', [FamiliarCargaController::class, 'delete'])->name('cargasfamiliares-delete');
 /*
 Rutas para hacer test de cargar una matriz
 */

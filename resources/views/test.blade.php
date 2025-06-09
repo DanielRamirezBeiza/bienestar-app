@@ -9,83 +9,30 @@ Sitio para realizar: Test
 @section('content')
   <div class="card-deck">
 
-    <div class="card">
-    
-        <form>
-          <div class="form-group">
-            <label for="exampleInputEmail1">Correo electronico</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp">
-            <small id="emailHelp" class="form-text text-muted">ingresa una dirección valida</small>
-          </div>
+   <div class="card">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Lector de Datos</h5>
+                      <p class="card-text">Test de datos cargados desde excel en una matriz vacia para observar resultados durante la conexion a base de datos</p>
+                      @if(session('sucess'))
+                        <p class="card-text">Cargado</p>
+                        @else
+                        <p class="card-text">No cargado.</p>
+                      @endif
 
-          <div class="form-group">
-            <label for="exampleFormControlSelect1">Selecciona una opción</label>
-            <select class="form-control" id="exampleFormControlSelect1">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-            </select>
-          </div>
-            
-
-          <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1">
-          </div>
-          <div class="form-group form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-            <label class="form-check-label" for="exampleCheck1">Check me out</label>
-          </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
-    </div>
-
-    <div class="card">
-        <form>
-          <div class="form-group">
-            <label for="exampleFormControlInput1">Email address</label>
-            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-          </div>
-          <div class="form-group">
-            <label for="exampleFormControlSelect1">Example select</label>
-            <select class="form-control" id="exampleFormControlSelect1">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="exampleFormControlSelect2">Example multiple select</label>
-            <select multiple class="form-control" id="exampleFormControlSelect2">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="exampleFormControlTextarea1">Example textarea</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-          </div>
-        </form>
-    </div>
-    
-
-    <div class="card">
-      <form>
-                  <div class="form-group">
-                    <label for="exampleFormControlFile1">Example file input</label>
-                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                          <form action="{{route('matriz.store')}}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <label for="Importar Excel">Cargar Datos</label>
+                        <input type="file" class="form-control-file" name="import_file" />  
+                        <button class="btn btn-primary disabled" type="submit">Actualizar</button>
+                      </form>
+  
+                    </div>
+                    <div class="card-footer">
+                  
+                        <a href="{{route('matriz.index')}}" class="btn btn-warning">Visualizar Datos</a>
+                    </div>
                   </div>
-                </form>
-      </div>
-
-    </div>
 
   </div>             
 @endsection
