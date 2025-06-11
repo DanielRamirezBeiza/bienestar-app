@@ -10,21 +10,26 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Test\PostController;
 use App\Http\Controllers\Test\RegisterController;
 use App\Http\Controllers\Test\LoginController;
+use App\Http\Controllers\TestTokenController;
+use App\Http\Controllers\TokenController;
+use App\Http\Controllers\TokenManagerController;
 use App\Models\FamiliarCarga;
 use App\Models\Pia;
+
+
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
-
-
+use PHPUnit\Event\Code\Test;
 
 Route::get('/', function () {
     return view('index');
 })->name('index');
 
 Route::get('/test', function(){
-    return view('test');
-});
+    return view('test.index');
+})->name('test');
+
 
 
 Route::get('/inventario', function(){
@@ -90,3 +95,10 @@ Route::middleware('auth.soap')->group(function () {
 
 
 
+// Mostrar formulario usando un token
+Route::get('/acceso/{token}', [TokenController::class, 'show'])
+    ->name('token.show');
+
+// Procesar formulario (encuesta, opinión, descarga)
+Route::post('/acceso/{token}', [TokenController::class, 'submit'])
+    ->name('token.submit');

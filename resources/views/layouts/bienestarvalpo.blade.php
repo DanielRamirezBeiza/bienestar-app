@@ -3,8 +3,9 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title inertia>BienestarValpo.app {{-- config('app.name', 'Laravel') --}} @yield('titulo')</title>
+        <title inertia>Bienestar.app {{-- config('app.name', 'Laravel') --}} @yield('titulo')</title>
         
+
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
