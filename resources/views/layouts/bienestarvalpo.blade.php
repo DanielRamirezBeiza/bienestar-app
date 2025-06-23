@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title inertia>Bienestar.app {{-- config('app.name', 'Laravel') --}} @yield('titulo')</title>
+        <title inertia>DHL I. Municipalidad de Valparaíso{{-- config('app.name', 'Laravel') --}} @yield('titulo')</title>
         
 
 
@@ -20,7 +20,7 @@
 
     <body class="font-sans antialiased">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="{{route('index')}}">BIENESTAR</a>
+            <a class="navbar-brand" href="{{route('index')}}">DHL</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -39,10 +39,22 @@
                   <a class="nav-link" href="{{route('cargasfamiliares-index')}}">Cargas Familiares</a>
                 </li>
 
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Salud Ocupacional</a>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Relaciones Laborales</a>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Ciclo de Vida Laboral</a>
+                </li>
+
 
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
-                    Servicios
+                    Bienestar
                   </a>
                   <div class="dropdown-menu">
                     <a class="dropdown-item" href="#">Inscribirse</a>
@@ -78,8 +90,8 @@
             </div>
           </nav>
         <div class="container bg-primary border border-dark rounded mt-2">
-            <h1 class="text-light text-center">PANEL DE INICIO</h1>
-            <h4 class="text-light text-center">@yield('titulo')</h1>
+            <h1 class="text-light text-center">Panel: @yield('titulo')</h1>
+            <h4 class="text-light text-center">@yield('subtitulo')</h1>
 
         </div>
 

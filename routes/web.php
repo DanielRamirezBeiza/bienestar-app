@@ -30,7 +30,12 @@ Route::get('/test', function(){
     return view('test.index');
 })->name('test');
 
+Route::get('/notasDesarrollo', function(){
+    return view('admin.notasDesarrollo');
+})->name('notasDesarrollo');
 
+Route::get('/spacewar', function () {
+    return view('spacewars');})->name('spacewar');
 
 Route::get('/inventario', function(){
     return view('inventario');
@@ -102,3 +107,7 @@ Route::get('/acceso/{token}', [TokenController::class, 'show'])
 // Procesar formulario (encuesta, opinión, descarga)
 Route::post('/acceso/{token}', [TokenController::class, 'submit'])
     ->name('token.submit');
+
+
+Route::get('/ver/tokens', [TokenController::class, 'show'])->name('token.show'); 
+Route::post('/guardar/{token}', [TokenController::class, 'store'])->name('token.store');  

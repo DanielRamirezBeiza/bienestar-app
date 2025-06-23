@@ -1,15 +1,21 @@
 @extends('layouts.bienestarvalpo')
 
 @section('titulo')
+Inicio
+@endsection
+
+
+@section('subtitulo')
 Plataforma Autogestionada
 @endsection
 
 @section('content')
             <div class="jumbotron mt-2">
-                <h1 class="display-4">Plataforma Social Para la Administración</h1>
+                <h1 class="display-4">Plataforma de Administración del Desarrolo Humano Laboral</h1>
                 <h5 class=""><?php echo date("Y-m-d h:i:sa");?> </h5>
                 <p class="lead">Estado: En desarrollo</p>
-                  <a href="{{route('matriz.index')}}" class="btn btn-warning">Visualizar Datos</a>
+                <a href="{{route('notasDesarrollo')}}" class="btn btn-info">Notas de desarrollo</a>
+                <a href="{{route('spacewar')}}" class="btn btn-info">spacewar</a>
                 <hr class="my-4">
                 <p>Menu de acciones.</p>
                 <a class="btn btn-primary btn-lg" href="https://www.bienestarvalpo.cl/" role="button">Sitio Anterior</a>
