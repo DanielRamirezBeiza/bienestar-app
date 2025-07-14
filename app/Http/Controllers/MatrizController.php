@@ -34,30 +34,15 @@ class MatrizController extends Controller
     /**
      * Store a newly created resource in storage.
      */
+    
     public function store(Request $request)
     {
-        //
-<<<<<<< HEAD
-    
-        $request->validate([
-            'file' => 'required|mimes:csv, xls, xlsx'
-        ]);
-
-        
-
-
-        $file= $request->file('file');
-
-        Excel::toCollection(new MatrizImport, $file); 
-        return redirect()->route('test-home')->with('success', 'Actualización correcta');
-
-    }
-
-=======
+        //dd($request->all(), $request->file('import_file'));
            $file = $request->file('import_file');
            Excel::import(new MatrizImport, $file);
-           return redirect()->route('test-home')->with('success', 'Actualización correcta');
+           return redirect()->route('index')->with('success', 'Actualización correcta');
     }
+        
 
     public function storeCargasBienestar(Request $request)
     {
@@ -79,7 +64,6 @@ class MatrizController extends Controller
 
 
 
->>>>>>> aa86e0fc4ea6183efca3a2193287429213849f71
 
     /**
      * Display the specified resource.

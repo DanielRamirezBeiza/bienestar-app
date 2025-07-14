@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title inertia>DHL I. Municipalidad de Valparaíso{{-- config('app.name', 'Laravel') --}} @yield('titulo')</title>
+        <title inertia>DHL I.M.Valparaíso{{-- config('app.name', 'Laravel') --}} @yield('titulo')</title>
         
 
 
@@ -20,7 +20,8 @@
 
     <body class="font-sans antialiased">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="{{route('index')}}">DHL</a>
+            <a class="navbar-brand active" href="{{route('index')}}">DHL Inicio</a>
+           
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -71,17 +72,17 @@
               </ul>
                 <span class="text-white bold mx-2">
                   @if(auth()->user())
-                  <div class="btn-group-vertical" role="group" aria-label="Basic example">
-                    <button type="button" class="btn btn-secondary mt-1">Mi Sesión</button>
+                  <div class="btn-group" role="group" aria-label="Basic example">
+                    <button type="button mx-2" class="btn btn-secondary mt-1">Mi Sesión</button>
                     <form method="POST" action="{{route('test-logout')}}">
                       @csrf
                       <button type="submit" class="btn btn-secondary btn-lg btn-block">Cerrar sesión</button>
                       </form>
                   </div>
                   @else
-                    <div class="btn-group-vertical" role="group" aria-label="Basic example">
-                      <button type="button" class="btn btn-secondary mt-1">Iniciar Sesión</button>
-                      <button type="button" class="btn btn-secondary mt-1">Registrarse</button>
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                      <button type="button mx-2 " class="btn btn-secondary mt-1">Iniciar Sesión</button>
+                      <button type="button mx-2" class="btn btn-secondary mt-1">Registrarse</button>
                     </div>
                   @endif
                 </span>>
@@ -89,18 +90,22 @@
                   
             </div>
           </nav>
-        <div class="container bg-primary border border-dark rounded mt-2">
-            <h1 class="text-light text-center">Panel: @yield('titulo')</h1>
-            <h4 class="text-light text-center">@yield('subtitulo')</h1>
 
-        </div>
 
-        <div class="container border border-dark rounded mt-2">
+        
+          <div class="d-flex flex-column align-items-center"> 
+            <div class="card align-items-center bg-primary border border-dark rounded mt-2">
+              <h5 class="text-light text-center">Vista: @yield('titulo')</h5>
+              <p class="btn btn-danger">N° de tickets: # </p>
+              <h5 class="text-light text-center">@yield('subtitulo')</h5>
+              <p class="text-light text-center">Desarrolo Humano Laboral <?php echo date("h:i:sa d-m-Y ");?></p>
+            </div>
+        
+          @yield('content')
           
-        @yield('content')
-
-
+          </div>
+        
         </div>
-    
+    </div>
 </body>
 </html>

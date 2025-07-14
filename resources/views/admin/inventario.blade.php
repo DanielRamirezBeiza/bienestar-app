@@ -1,4 +1,4 @@
-@extends('layouts.bienestarvalpo')
+@extends('layouts.main')
 
 @section('titulo')
     Matrices de Inventario

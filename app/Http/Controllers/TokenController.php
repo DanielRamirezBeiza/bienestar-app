@@ -15,7 +15,7 @@ class TokenController extends Controller
         // Guardar contenido fijo al presionar botón
         TokenAction::create([
             'token' => $token,
-            'action' => 'boton_presionado',
+            'action' => 'Nuevo boton presionado',
             'data' => json_encode(['mensaje' => 'Botón fue presionado con éxito']),
         ]);
         return back()->with('status', 'Guardado correctamente');

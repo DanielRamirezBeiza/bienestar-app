@@ -15,15 +15,15 @@ use App\Http\Controllers\TokenController;
 use App\Http\Controllers\TokenManagerController;
 use App\Models\FamiliarCarga;
 use App\Models\Pia;
-
-
+use App\Models\TokenAction;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use PHPUnit\Event\Code\Test;
 
 Route::get('/', function () {
-    return view('index');
+    $totalTokens = TokenAction::count();
+    return view('index', compact('totalTokens'));
 })->name('index');
 
 Route::get('/test', function(){
