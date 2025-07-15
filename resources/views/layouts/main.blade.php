@@ -21,7 +21,7 @@
     <body class="font-sans antialiased">
       <div class="page-container">
         <x-navbar />
-        <main class="container container-fill bg-primary mt-2">
+        <main class="container container-fill bg-dark rounded mt-2">
           <div class="d-flex flex-column align-items-center"> 
           @yield('content')
           </div>

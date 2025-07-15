@@ -35,20 +35,20 @@
         </li>
         </ul>
         <span class="text-white bold mx-2">
+            <div class="btn-group border" role="group">
             @if(auth()->user())
-            <div class="btn-group" role="group" aria-label="Basic example">
-            <button type="button mx-2" class="btn btn-secondary mt-1">Mi Sesión</button>
-            <form method="POST" action="{{route('test-logout')}}">
-                @csrf
-                <button type="submit" class="btn btn-secondary btn-lg btn-block">Cerrar sesión</button>
-                </form>
-            </div>
+                <button type="button" class="btn btn-secondary btn-sm m-2 ">Mi Sesión</button>
+                <form method="POST" action="{{route('test-logout')}}">
+                    @csrf
+                    <button type="submit" class="btn btn-secondary btn-sm m-2 ">Cerrar sesión</button>
+                    </form>
+                
             @else
-            <div class="btn-group" role="group" aria-label="Basic example">
-                <button type="button mx-2 " class="btn btn-secondary mt-1">Iniciar Sesión</button>
-                <button type="button mx-2" class="btn btn-secondary mt-1">Registrarse</button>
-            </div>
+                    <button type="button" class="btn btn-secondary btn-sm m-2">Iniciar Sesión</button>
+                    <button type="button" class="btn btn-secondary btn-sm m-2 ">Registrarse</button>
+        
             @endif
+            </div>
         </span>>            
     </div>
 </nav>
