@@ -1,6 +1,6 @@
 <div class="card align-items-center bg-primary border border-dark rounded m-2">
       <div class="card-header p-1">
-        <p class="text-light text-center">Desarrolo Humano Laboral</p>
+        <p class="text-light text-center">Departamento de Gestión de Personal</p>
       </div>
       <div class="card-body p-1">
         <p class="btn btn-danger btn-small">N° de tickets: {{$total}}</p>

@@ -7,8 +7,14 @@ Sitio para realizar diversos Test
 
 
 @section('content')
+ <hr class="my-4 w-100">
+  <div class="row justify-content-center" name="3 fila">
+      <a class="btn btn-primary mx-3" href="https://www.bienestarvalpo.cl/" role="button">Sitio: BienestarValpo.cl</a>
+      <a class="btn btn-primary mx-3" href="/test" role="button">Sitio Pruebas</a>
+      <a class="btn btn-primary disabled mx-3" href="{{route('pias.login.form')}}" role="button">Test Pias</a>
+  </div>
+  
   <div class="card-deck">
-    
     <div class="card border">
       <div class="card-body mt-2">
         <h5 class="card-title">Test 1: Generar Token</h5>
@@ -72,7 +78,17 @@ Sitio para realizar diversos Test
     </div>
 
 
-</div>  
+</div> 
+
+
+ <div class="row justify-content-center" name="4 fila">
+        <div class="col-5">
+          <x-card-matriz-loader /> 
+        </div>
+        <div class="col-5">
+          <x-card-auth/>
+        </div>
+  </div>
       
       
 
