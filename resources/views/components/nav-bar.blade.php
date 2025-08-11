@@ -49,6 +49,6 @@
         
             @endif
             </div>
-        </span>>            
+        </span>         
     </div>
 </nav>

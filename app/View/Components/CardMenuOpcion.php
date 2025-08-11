@@ -11,16 +11,18 @@ class CardMenuOpcion extends Component
     public $titulo;
     public $descripcion;
     public $detalle;
+    public $tipo;
 
     /**
      * Create a new component instance.
      */
-    public function __construct($titulo, $descripcion=null, $detalle=null)
+    public function __construct($titulo, $descripcion=null, $detalle=null, $tipo=null)
     {
     //
     $this->titulo = $titulo;
     $this->descripcion = $descripcion;
     $this->detalle = $detalle;
+    $this->tipo = $tipo;
     }
 
     /**

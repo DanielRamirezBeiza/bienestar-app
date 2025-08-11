@@ -21,7 +21,7 @@ Sitio para realizar diversos Test
         <ul>
           <li>1.- Probar conexión a base de datos</li>
         </ul>
-        <form id="tokenTest1" action="{{route('token.store', ['token'=>'Test_1->generado desde la vista Test']) }}" method="POST" novalidate>
+        <form id="tokenTest1" action="{{route('token.store', ['token'=>'Token: Test_1->generado desde la vista Test']) }}" method="POST" novalidate>
           @csrf
           <div class="form-group">
             <p>Instrucciones: </p>

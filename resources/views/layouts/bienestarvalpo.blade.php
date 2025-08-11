@@ -85,7 +85,7 @@
                       <button type="button mx-2" class="btn btn-secondary mt-1">Registrarse</button>
                     </div>
                   @endif
-                </span>>
+                </span>
                   
                   
             </div>
